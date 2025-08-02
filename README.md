@@ -1,35 +1,50 @@
-Sistema de Control de Estudiantes
-Objetivo
-El objetivo de esta práctica fue crear una aplicación en Java que permita a un docente llevar el control de estudiantes y sus calificaciones por asignatura y grupo. Para ello, se aplicaron los conceptos de herencia, polimorfismo, encapsulamiento y uso de colecciones (ArrayList).
+# Sistema de Control de Estudiantes
 
-Desarrollo
+## Objetivo
+
+El objetivo de esta práctica fue crear una aplicación en Java que permita a un docente llevar el control de estudiantes y sus calificaciones por asignatura y grupo. Para ello, se aplicaron los conceptos de **herencia**, **polimorfismo**, **encapsulamiento** y uso de colecciones (`ArrayList`).
+
+---
+
+## Desarrollo
+
 Se implementó un menú interactivo en consola que permite:
 
-Crear asignaturas
+- Crear asignaturas
+- Agregar grupos a una asignatura
+- Agregar estudiantes (presenciales o a distancia)
+- Registrar calificaciones (examen y práctica)
+- Ver las notas de cada grupo
+- Calcular el porcentaje de estudiantes aprobados
 
-Agregar grupos a una asignatura
+> El sistema no utiliza base de datos. Todos los datos se almacenan en memoria durante la ejecución.
 
-Agregar estudiantes (presenciales o a distancia)
+---
 
-Registrar calificaciones (examen y práctica)
+## Estructura del Código
 
-Ver las notas de cada grupo
+El sistema está dividido en clases, cada una con una responsabilidad específica:
 
-Calcular el porcentaje de estudiantes aprobados
+| Clase                | Descripción                                                                 |
+|----------------------|------------------------------------------------------------------------------|
+| `Student`            | Clase abstracta base para todos los estudiantes.                             |
+| `OnCampusStudent`    | Hereda de `Student`, representa a estudiantes presenciales.                  |
+| `RemoteStudent`      | Hereda de `Student`, representa a estudiantes a distancia.                   |
+| `Group`              | Representa un grupo de estudiantes dentro de una asignatura.                 |
+| `Subject`            | Representa una asignatura que contiene uno o varios grupos.                  |
+| `OperationResult`    | Modelo para manejar respuestas exitosas o con errores en las operaciones.   |
 
-El sistema no usa base de datos, todo se guarda en memoria mientras se ejecuta.
+---
 
-Estructura del código
-Se crearon varias clases:
+## Organización de Carpetas
 
-Student (abstracta): clase base para los estudiantes.
-
-OnCampusStudent y RemoteStudent: extienden Student y calculan la nota final según el tipo.
-
-Group: representa un grupo de estudiantes dentro de una asignatura.
-
-Subject: representa una asignatura con sus grupos.
-
-OperationResult: clase para manejar respuestas exitosas o con errores.
-
-El código está dividido en archivos y organizado en carpetas (src/models), siguiendo buenas prácticas básicas de programación orientada a objetos.
+```bash
+src/
+├── Main.java
+└── models/
+    ├── Student.java
+    ├── OnCampusStudent.java
+    ├── RemoteStudent.java
+    ├── Group.java
+    ├── Subject.java
+    └── OperationResult.java
